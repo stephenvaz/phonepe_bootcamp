@@ -35,13 +35,8 @@ import com.stephen.phonepe_bootcamp.presentation.ui.theme.SearchWhite
 fun ExploreSearchBar(modifier: Modifier = Modifier, onSearch: (String) -> Unit) {
 //    TODO: this component will be used on both the home page and the explore page, so i will pass a lambda to the component to handle the search functionality
     var searchQuery by remember { mutableStateOf("") }
-    Box (
-        modifier = modifier
-            .background(LightBlue)
-            .padding(22.dp)
-            .statusBarsPadding()
-            .fillMaxWidth()
-    ) {
+    TopBar ()
+    {
         Column (
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.Center,
@@ -59,7 +54,6 @@ fun ExploreSearchBar(modifier: Modifier = Modifier, onSearch: (String) -> Unit) 
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 12.dp)
-//                    .height(50.dp)
                     .align(Alignment.CenterHorizontally)
                     .scale(scaleX = 1.0f ,scaleY = 0.95f),
                 colors = SearchBarDefaults.colors(

@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.stephen.phonepe_bootcamp.presentation.add_page.components.AddBar
+import com.stephen.phonepe_bootcamp.presentation.add_page.components.AddItemForm
 
 @Composable
 fun AddPageScreen(modifier: Modifier = Modifier) {
@@ -19,16 +21,14 @@ fun AddPageScreen(modifier: Modifier = Modifier) {
         color = MaterialTheme.colorScheme.background
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(15.dp),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top
         ) {
 
-            Text(
-                "Add Screen",
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.padding(vertical = 20.dp)
-            )
+            AddBar()
+
+            AddItemForm()
         }
     }
 }

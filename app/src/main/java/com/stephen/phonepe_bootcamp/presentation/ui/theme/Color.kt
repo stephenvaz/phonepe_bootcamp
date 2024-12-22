@@ -21,3 +21,5 @@ val LighterGray =  Color(0xFFFAFAFA)
 val SearchWhite = Color(0xFFF6F6F6)
 
 val TextGray = Color(0xFFA3A3A3)
+
+val TextGray2 = Color(0xFFBDBDBD)

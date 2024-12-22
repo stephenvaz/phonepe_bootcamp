@@ -13,7 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -35,7 +35,7 @@ fun ProductGridItem(
     shippingMethod: String,
     imageUrl: String? = null
 ) {
-    var lineCount by remember { mutableStateOf(0) }
+//    var lineCount by remember { mutableIntStateOf(0) }
 
     Column(
         modifier = modifier
@@ -57,7 +57,16 @@ fun ProductGridItem(
                     model = imageUrl,
                     contentDescription = "Product Image for $itemName",
                 )
+            } else {
+                // Placeholder Box
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(90.dp)
+                        .background(color = LightGray)
+                )
             }
+
         }
         Spacer(modifier = Modifier.height(8.dp))
         // Product Name
@@ -68,9 +77,9 @@ fun ProductGridItem(
             style = MaterialTheme.typography.bodyMedium,
             maxLines = 3,
             overflow = TextOverflow.Ellipsis,
-            onTextLayout = { textLayoutResult ->
-                lineCount = textLayoutResult.lineCount
-            }
+//            onTextLayout = { textLayoutResult ->
+//                lineCount = textLayoutResult.lineCount
+//            }
         )
         // Dynamic Spacer
         Spacer(

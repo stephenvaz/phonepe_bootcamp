@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
@@ -29,17 +29,12 @@ import com.stephen.phonepe_bootcamp.presentation.ui.theme.TextGray
 
 @Composable
 fun ProductItem(modifier: Modifier = Modifier, itemName: String, itemPrice: Double, shippingMethod: String, imageUrl: String? = null) {
-    Box (
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 12.dp)
-            .padding(top = 16.dp)
-//            .statusBarsPadding()
-    ) {
         Row (
             modifier = Modifier
                 .fillMaxWidth()
-
+                .fillMaxHeight()
+                .padding(horizontal = 12.dp)
+                .padding(top = 16.dp)
         ) {
             Box(
                 modifier = Modifier
@@ -59,8 +54,8 @@ fun ProductItem(modifier: Modifier = Modifier, itemName: String, itemPrice: Doub
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column (
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier.fillMaxWidth().height(60.dp),
+                verticalArrangement = Arrangement.SpaceBetween,
             ) {
                 // Product Name
                 Text(
@@ -70,31 +65,34 @@ fun ProductItem(modifier: Modifier = Modifier, itemName: String, itemPrice: Doub
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                     )
+                // Add maximum space between the above text and the below row
                 Row (
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
-
                 ) {
                     // Product Price
-                    Row (
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(text = "MRP: ", style = MaterialTheme.typography.bodyMedium, color = TextGray)
-                        Spacer(modifier = Modifier.width(2.dp))
-                        Text(text = "₹$itemPrice", style = MaterialTheme.typography.bodyMedium)
-                    }
+                    PriceRow(itemPrice)
                     // Shipping
                     Text(text = shippingMethod, style = MaterialTheme.typography.bodySmall, color = TextGray )
                 }
                 HorizontalDivider(
-                    modifier = Modifier
-                        .padding(top = 16.dp),
+                    modifier = Modifier,
                     color = LightGray
 
                 )
             }
         }
+}
+
+@Composable
+private fun PriceRow(itemPrice: Double) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(text = "MRP: ", style = MaterialTheme.typography.bodyMedium, color = TextGray)
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(text = "₹$itemPrice", style = MaterialTheme.typography.bodyMedium)
     }
 }
 

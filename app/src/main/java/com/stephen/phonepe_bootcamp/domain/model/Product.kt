@@ -18,7 +18,7 @@ val dummyProducts = listOf(
         name = "Bingo! Mad Angles Achaari Masti Chips",
         price = 20.00,
         shippingMethod = "Free Shipping",
-        imageUrl = "https://cdn.zeptonow.com/production///tr:w-1000,ar-1021-1021,pr-true,f-auto,q-80/cms/product_variant/0b6b9847-21ce-4a14-8735-fb6c066d7cd3.jpeg"
+//        imageUrl = "https://cdn.zeptonow.com/production///tr:w-1000,ar-1021-1021,pr-true,f-auto,q-80/cms/product_variant/0b6b9847-21ce-4a14-8735-fb6c066d7cd3.jpeg"
     ),
 //    give different products
     Product(
