@@ -21,11 +21,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 //import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.stephen.phonepe_bootcamp.presentation.common.shimmerEffect
 //import com.stephen.phonepe_bootcamp.domain.model.dummyProducts
 import com.stephen.phonepe_bootcamp.presentation.ui.theme.LightGray
+import com.stephen.phonepe_bootcamp.presentation.ui.theme.Phonepe_bootcampTheme
 
 @Composable
 fun ProductGridItem(
@@ -114,3 +117,73 @@ fun ProductGridItem(
 //        imageUrl = dummyProducts[0].imageUrl
 //    )
 //}
+
+@Composable
+fun ProductGridItemShimmer(
+    modifier: Modifier = Modifier,
+) {
+//    var lineCount by remember { mutableIntStateOf(0) }
+
+    Column(
+        modifier = modifier
+            .fillMaxWidth(),
+    ) {
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(8.dp))
+                .background(color = LightGray)
+                .shadow(
+                    elevation = 100.dp,
+                    shape = RoundedCornerShape(8.dp)
+                )
+        ) {
+            // Image
+
+                // Placeholder Box
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(90.dp)
+                        .background(color = LightGray)
+                        .shimmerEffect()
+                )
+
+
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        // Product Name
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(20.dp)
+                .clip(MaterialTheme.shapes.medium)
+                .background(color = LightGray)
+                .shimmerEffect()
+        )
+        // Dynamic Spacer
+        Spacer(
+            modifier = Modifier.height(
+                4.dp
+            )
+        )
+        // Product Price
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(0.5f)
+                .height(18.dp)
+                .clip(MaterialTheme.shapes.medium)
+                .background(color = LightGray)
+                .shimmerEffect()
+        )
+    }
+}
+
+@Preview(
+    showBackground = true
+)
+@Composable
+fun ProductGridItemShimmerPreview() {
+    Phonepe_bootcampTheme {
+        ProductGridItemShimmer()
+    }
+}

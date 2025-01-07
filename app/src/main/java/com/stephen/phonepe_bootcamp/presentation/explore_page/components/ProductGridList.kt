@@ -9,10 +9,11 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.stephen.phonepe_bootcamp.domain.model.Product
+import com.stephen.phonepe_bootcamp.domain.model.Item
+import com.stephen.phonepe_bootcamp.domain.model.dummyItems
 
 @Composable
-fun ProductGridList(modifier: Modifier = Modifier, products: List<Product>) {
+fun ProductGridList(modifier: Modifier = Modifier, items: List<Item>) {
     LazyVerticalGrid(
         modifier = modifier
             .fillMaxWidth()
@@ -27,15 +28,38 @@ fun ProductGridList(modifier: Modifier = Modifier, products: List<Product>) {
         horizontalArrangement = Arrangement.spacedBy(32.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         content = {
-            items(products.size) { index ->
+            items(items.size) { index ->
                 ProductGridItem(
-                    itemName = products[index].name,
-                    itemPrice = products[index].price,
-                    shippingMethod = products[index].shippingMethod,
-                    imageUrl = products[index].imageUrl
+                    itemName = items[index].name,
+                    itemPrice = items[index].price,
+                    shippingMethod = items[index].extra,
+                    imageUrl = items[index].imageUrl
                 )
             }
         }
 
+    )
+}
+
+@Composable
+fun ProductGridListShimmer(modifier: Modifier = Modifier) {
+    LazyVerticalGrid(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        columns = GridCells.Fixed(3),
+        contentPadding = PaddingValues(
+            start = 16.dp,
+            end = 8.dp,
+            top = 32.dp,
+            bottom = 8.dp
+        ),
+        horizontalArrangement = Arrangement.spacedBy(32.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        content = {
+            items(12) {
+                ProductGridItemShimmer()
+            }
+        }
     )
 }

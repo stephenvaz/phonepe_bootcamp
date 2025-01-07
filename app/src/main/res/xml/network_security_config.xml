@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+<!--    for http toolkit for network level debugging    -->
+<!--    remove reference from manifest for release  -->
+<!--    add below to manifest's  application tag (property)    -->
+<!--    android:networkSecurityConfig="@xml/network_security_config"   -->
+    <base-config>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" overridePins="true" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

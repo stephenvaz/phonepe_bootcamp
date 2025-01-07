@@ -13,8 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.stephen.phonepe_bootcamp.R
 import com.stephen.phonepe_bootcamp.presentation.ui.theme.LightBlue
 import com.stephen.phonepe_bootcamp.presentation.ui.theme.NavGreen
 
@@ -22,7 +24,9 @@ import com.stephen.phonepe_bootcamp.presentation.ui.theme.NavGreen
 fun AddBar(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .background(LightBlue)
+            .background(
+                colorResource(R.color.top_bar)
+            )
             .padding(22.dp)
             .statusBarsPadding()
             .fillMaxWidth()

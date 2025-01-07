@@ -34,9 +34,9 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun Phonepe_bootcampTheme(
-//    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = isSystemInDarkTheme(),
 //    TODO: create dark theme later
-    darkTheme: Boolean = false,
+//    darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

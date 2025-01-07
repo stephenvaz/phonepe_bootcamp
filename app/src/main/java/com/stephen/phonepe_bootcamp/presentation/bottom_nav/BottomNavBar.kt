@@ -24,10 +24,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.stephen.phonepe_bootcamp.R
 import com.stephen.phonepe_bootcamp.presentation.bottom_nav.components.BottomNavItem
 import com.stephen.phonepe_bootcamp.presentation.ui.theme.LighterGray
 import com.stephen.phonepe_bootcamp.presentation.ui.theme.NavGreen
@@ -40,8 +42,11 @@ fun BottomNavBar(navController: NavController) {
     Box (
         modifier = Modifier
             .fillMaxWidth()
-            .shadow(20.dp)
-            .background(LighterGray)
+            .shadow(
+                elevation = 20.dp,
+            )
+//            .background(LighterGray)
+            .background(colorResource(R.color.bottom_nav))
             .padding(top = 10.dp, bottom = 10.dp)
             .navigationBarsPadding()
     ) {
@@ -61,14 +66,15 @@ fun BottomNavBar(navController: NavController) {
 }
 
 @Composable
-fun RowScope.AddItem(
+fun AddItem(
     bottomItem: BottomNavItem,
     currentRoute: String?,
     navController: NavController
 ) {
     val isSelected = currentRoute == bottomItem.route
-    val bgColor = if (isSelected) NavGreen else Color(0xFFE8E8E8)
-    val iconColor = if (isSelected) Color.White else Color.Black
+    val bgColor = if (isSelected) NavGreen else colorResource(R.color.text_field)
+//    val iconColor = if (isSelected) Color.White else Color.Black
+    val iconColor = if (isSelected) colorResource(R.color.top_bar) else colorResource(R.color.body)
     val scale = if (isSelected) 1.2f else 1.0f
 
     Box(

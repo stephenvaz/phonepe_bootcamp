@@ -11,13 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.stephen.phonepe_bootcamp.presentation.add_page.components.AddBar
 import com.stephen.phonepe_bootcamp.presentation.add_page.components.AddItemForm
+import com.stephen.phonepe_bootcamp.presentation.common.MainViewModel
+import com.stephen.phonepe_bootcamp.presentation.common.hideKeyboardOnOutsideClick
 
 @Composable
-fun AddPageScreen(modifier: Modifier = Modifier) {
+fun AddPageScreen(
+    modifier: Modifier = Modifier,
+    viewModel: MainViewModel = hiltViewModel<MainViewModel>(),
+    navController: NavController
+) {
     Surface(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .hideKeyboardOnOutsideClick(),
         color = MaterialTheme.colorScheme.background
     ) {
         Column(
@@ -28,7 +38,10 @@ fun AddPageScreen(modifier: Modifier = Modifier) {
 
             AddBar()
 
-            AddItemForm()
+            AddItemForm(
+                viewModel = viewModel,
+                navController = navController
+            )
         }
     }
 }
